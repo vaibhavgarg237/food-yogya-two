@@ -103,9 +103,10 @@ const FoodDisplay = ({ category, search = false }) => {
                   name={item.name}
                   description={item.description}
                   price={item.price}
+                  sizes={item.sizes}
                   image={item.image}
                 />
-                <div className="size-options">
+                {/* <div className="size-options">
                   <p>Available Sizes:</p>
                   {item.sizes && Object.entries(item.sizes).length > 0 ? (
                     Object.entries(item.sizes).map(([size, price]) => (
@@ -118,7 +119,7 @@ const FoodDisplay = ({ category, search = false }) => {
                   ) : (
                     <span>No sizes available</span>
                   )}
-                </div>
+                </div> */}
               </div>
             );
           }

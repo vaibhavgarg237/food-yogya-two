@@ -22,21 +22,21 @@
 //     large: 0,
 //     extraLarge: 0,
 //   });
-//   //new change end here 
+//   //new change end here
 
 //   const OnChangeHandler = (event) => {
 //     const name = event.target.name;
 //     const value = event.target.value;
 //     setData((data) => ({ ...data, [name]: value }));
 //   };
-  
+
 //   //new change here start
 //   const onSizeChangeHandler = (event) => {
 //     const name = event.target.name;
 //     const value = Number(event.target.value);
 //     setSizes((sizes) => ({ ...sizes, [name]: value }));
 //   };
-// //new change end here 
+// //new change end here
 //   const onSubmitHandler = async (event) => {
 //     event.preventDefault();
 //     const formData = new FormData();
@@ -202,6 +202,7 @@ const Add = ({ url }) => {
     formData.append("price", Number(data.price));
     formData.append("category", data.category);
     formData.append("image", image);
+    console.log("YA",formData);
 
     try {
       const response = await axios.post(`${url}/api/food/add`, formData);
@@ -231,8 +232,8 @@ const Add = ({ url }) => {
   };
 
   useEffect(() => {
-    console.log(data);
-  }, [data]);
+    console.log(data,sizes);
+  }, [data,sizes]);
 
   return (
     <div>
