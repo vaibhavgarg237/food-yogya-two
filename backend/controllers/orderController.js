@@ -57,7 +57,6 @@ const placeOrder = async (req, res) => {
       });
 
       const neworder = await newOrder.save();
-      console.log("neworder",neworder);
       await userModel.findByIdAndUpdate(userId, { cartData: {} });
 
       // Prepare Stripe line items
@@ -67,7 +66,7 @@ const placeOrder = async (req, res) => {
           product_data: {
             name: item.name,
           },
-          unit_amount: item.price * 100 * 84, // Price in paise
+          unit_amount: item.selectedPrice * 100 * 84, // Price in paise
         },
         quantity: item.quantity,
       }));
@@ -83,7 +82,7 @@ const placeOrder = async (req, res) => {
         },
         quantity: 1,
       });
-
+      console.log("line_items",JSON.stringify(line_items))
       if(paymentMode==="cashondelivery"){
         return res.json({ success: true, message: "Order Placed" });
       }
