@@ -198,13 +198,13 @@ import { assets } from '../../assets/assets';
 
 const Orders = ({ url }) => {
   const [orders, setOrders] = useState([]);
-
+  
   const fetchAllOrders = async () => {
     try {
       const response = await axios.get(url + "/api/order/list");
       if (response.data.success) {
         setOrders(response.data.data);
-        console.log(response.data.data);
+        // console.log(response.data.data);
       } else {
         toast.error("Error fetching orders");
       }
@@ -260,6 +260,7 @@ const Orders = ({ url }) => {
               </div>
               <p className="order-item-phone">{order.address.phone}</p>
               <p className='order-item-count'>Items: {order.items.length}</p>
+              <p>{"Payment Mode: " +(order.paymentMode==="cashondelivery" ? "Cash On Delivery" : (order.paymentMode==="payment"? "Prepaid":"Not Selected") )}</p>
               <p>${order.amount}</p>
             </div>
             <div className="order-item-action">

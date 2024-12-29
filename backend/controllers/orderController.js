@@ -53,9 +53,11 @@ const placeOrder = async (req, res) => {
         items,
         amount,
         address,
+        paymentMode,
       });
 
-      await newOrder.save();
+      const neworder = await newOrder.save();
+      console.log("neworder",neworder);
       await userModel.findByIdAndUpdate(userId, { cartData: {} });
 
       // Prepare Stripe line items
@@ -191,6 +193,7 @@ const usersOrder = async (req, res) => {
 const listOrders = async (req, res) => {
   try {
     const orders = await orderModel.find({});
+    // console.log(orders);
     res.json({ success: true, data: orders });
   } catch (error) {
     console.log(error);
