@@ -1,0 +1,174 @@
+/* .add {
+  width: 70%;
+  margin-left: max(5vw, 25px);
+  margin-top: 50px;
+  color: #6d6d6d;
+  font-size: 16px;
+}
+
+.add form {
+  gap: 20px;
+}
+
+.add .flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+ */
+
+/* Add.css */
+
+/* Add.css */
+
+.add {
+  width: 100%; /* Ensure the container takes the full width */
+  display: flex;
+  justify-content: center; /* Center the form horizontally */
+}
+
+form {
+  width: 80%; /* Allow the form to take up 80% of the available width */
+  max-width: 12000px; /* Optional: Limit maximum width for better readability */
+  padding: 20px;
+  /* background-color: #fff; */
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); Optional: Add shadow */
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 450%; /* Make sure all items take the full width */
+}
+
+.add-category-price {
+  display: flex;
+  justify-content: space-between; /* Distribute category and price evenly */
+  gap: 20px; /* Add some space between the two columns */
+}
+
+.add-category,
+.add-price {
+  width: 48%; /* Each column takes 48% of the space */
+}
+
+.add-image-upload img {
+  width: 140px;
+}
+
+.add-product-name,
+.add-product-description {
+  width: max(40%, 280px);
+}
+/*   
+  @media (max-width: 900px) {
+    form {
+      width: 100%; 
+    
+  
+    .add-category,
+    .add-price {
+      width: 100%; 
+    }
+
+    .add-category-price {
+      flex-direction: column;
+    }
+  
+  
+  @media (max-width: 1000px) {
+    form {
+      width: 100%;
+    }
+  
+    .add-category,
+    .add-price {
+      width: 100%; 
+    }
+  
+    .add-category-price {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    form {
+      width: 100%; 
+    }
+  
+    .add-category,
+    .add-price {
+      width: 100%; 
+    }
+  
+    .add-category-price {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    form {
+      width: 100%; 
+    }
+  
+    .add-category,
+    .add-price {
+      width: 100%; 
+    }
+  
+    .add-category-price {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 1100px) {
+    form {
+      width: 100%; 
+    }
+  
+    .add-category,
+    .add-price {
+      width: 100%; 
+    }
+  
+    .add-category-price {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    form {
+      width: 100%;
+    }
+  
+    .add-category,
+    .add-price {
+      width: 100%; 
+    }
+  
+    .add-category-price {
+      flex-direction: column;
+    }
+  }
+   */
+
+/* .add-product-name input, .add-product-description textarea{
+    padding: 10px;
+} */
+
+.add-category-price select, .add-category-price input{
+    max-width: 150px;
+    padding: 10px;
+}
+
+.add-btn{
+    margin-top: 10px;
+    max-width: 135px;
+    border: none;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}

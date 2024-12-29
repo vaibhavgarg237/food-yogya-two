@@ -1,0 +1,27 @@
+POST http://localhost:4000/api/food/add
+# Content-Type: multipart/form-data
+Content-Type: multipart/form-data; boundary=boundary
+
+
+--boundary
+Content-Disposition: form-data; name="name"
+
+Burger
+--boundary
+Content-Disposition: form-data; name="description"
+
+A tasty veggie burger
+--boundary
+Content-Disposition: form-data; name="price"
+
+10
+--boundary
+Content-Disposition: form-data; name="category"
+
+Fast Food
+--boundary
+Content-Disposition: form-data; name="image"; filename="image.jpg"
+Content-Type: image/jpg
+
+< ./backend/uploads/image.jpg
+--boundary--

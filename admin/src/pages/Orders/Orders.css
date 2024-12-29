@@ -1,0 +1,99 @@
+/* General styles for the order container */
+.order.add {
+    padding: 20px;
+    max-width: 1200px; /* Limit the width for larger screens */
+    margin: 0 auto; /* Center the container */
+  }
+  
+  /* Center the heading */
+  .order.add h3 {
+    text-align: center;
+    margin-bottom: 20px; /* Space below the heading */
+    position: absolute;
+  }
+  
+  /* Styling for the order list */
+  .order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between each order item */
+  }
+  
+  /* Individual order item styles */
+  .order-item {
+    display: flex; /* Align items in a row */
+    justify-content: space-between; /* Space between items */
+    align-items: flex-start; /* Align items to the top */
+    border: 1px solid tomato; /* Border color */
+    padding: 20px; /* Padding inside the order item */
+    margin: 10% 0px; /* Margin above and below */
+    font-size: 14px; /* Font size */
+    color: #505050; /* Text color */
+    width: 100%; /* Full width */
+  }
+  
+  /* Order item image */
+  .order-item-image {
+    flex: 1; /* Flex-grow for image area */
+    margin-right: 15px; /* Space between image and text */
+  }
+  
+  .order-item-image img {
+    width: 100%; /* Image takes full width of the container */
+    max-width: 80px; /* Maximum width for the image */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  /* Order item details */
+  .order-item-details {
+    flex: 3; /* Flex-grow for details area */
+  }
+  
+  /* Action area for the dropdown */
+  .order-item-action {
+    flex: 1; /* Flex-grow for action area */
+    text-align: right; /* Align dropdown to the right */
+  }
+  
+  /* Order item name and address styles */
+  .order-item-name {
+    font-weight: 600; /* Bold for names */
+    margin: 10px 0; /* Spacing */
+  }
+  
+  .order-item-address {
+    margin-bottom: 10px; /* Space below address */
+  }
+  
+  /* Styling for dropdown */
+  .order-item-action select {
+    padding: 5px; /* Padding for select */
+  }
+  
+  .order-item select{
+    background-color: #ffe8e4;
+    border: 1px solid tomato;
+    width: max(10vw,120px);
+    padding: 10px;
+    outline: none;
+  }
+  /* Responsive adjustments */
+  @media (max-width: 1000px) {
+    .order-item {
+      flex-direction: column; /* Stack items on smaller screens */
+      align-items: flex-start; /* Align to the start */
+    }
+    
+    .order-item-action {
+      text-align: left; /* Align dropdown left on small screens */
+      margin-top: 10px; /* Margin above dropdown */
+    }
+
+    .order-item select{
+        font-size: 10px;
+    }
+  }
+
+
+  
+  
