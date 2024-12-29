@@ -14,7 +14,7 @@ const storeZipCode = "121006"; // Example zip code for store
 const placeOrder = async (req, res) => {
   const frontend_url = "http://localhost:5173";
 
-  const { userId, items, amount, address } = req.body;
+  const { userId, items, amount, address, paymentMode } = req.body;
   const userZipCode = address.zipcode;
 
   try {
@@ -81,6 +81,10 @@ const placeOrder = async (req, res) => {
         },
         quantity: 1,
       });
+
+      if(paymentMode==="cashondelivery"){
+        return res.json({ success: true, message: "Order Placed" });
+      }
 
       // Create a Stripe checkout session
       const session = await stripe.checkout.sessions.create({

@@ -11,12 +11,13 @@ const MyOrders = () => {
     const fetchOrders = async () => {
         const response = await axios.post(url+'/api/order/userorders',{},{headers: { Authorization: `Bearer ${token}`}});
         setData(response.data.data);
-        // console.log(response.data.data);
+        console.log(response.data.data);
     }
 
     useEffect(()=>{
         if(token){
             fetchOrders();
+            // console.log("data",data)
         }
     },[token])
   return (
@@ -24,6 +25,7 @@ const MyOrders = () => {
       <h2>My Orders</h2>
       <div className="container">
         {data.map((order,index)=>{
+          // console.log(order)
             return (
                 <div key={index} className='my-order-orders'>
                     <img src={assets.parcel_icon} alt=""/>

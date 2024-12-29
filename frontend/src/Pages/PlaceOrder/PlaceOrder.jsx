@@ -25,13 +25,16 @@ const PlaceOrder = () => {
     setData(data=>({...data,[name]:value}))
   }
 
+  const navigate = useNavigate();
+
   const placeOrder = async (event) => {
     event.preventDefault();
     let orderItems = [];
+    const paymentMode = event.nativeEvent.submitter.id;
     food_list.map((item)=>{
-      if(cartItems[item._id]>0){
+      if(cartItems[item._id]?.[0]>0){
         let iteminfo = item;
-        iteminfo["quantity"] = cartItems[item._id];
+        iteminfo["quantity"] = cartItems[item._id]?.[0];
         orderItems.push(iteminfo)
       }
     })
@@ -39,18 +42,27 @@ const PlaceOrder = () => {
       address:data,
       items:orderItems,
       amount:getTotalCartAmount()+2,
+      paymentMode
     }
+    console.log(orderData);
     let response = await axios.post(url+"/api/order/place",orderData,{headers: { Authorization: `Bearer ${token}` } })
     if(response.data.success){
-      const {session_url} = response.data;
-      window.location.replace(session_url);
+      //cashondelivery
+      if(paymentMode==="cashondelivery"){
+        console.log("cashondelivery")
+        alert("Order Placed Successfully via Cash on Delivery")
+        navigate('/myorders')
+      }
+      else{
+        //stripe payment
+        const {session_url} = response.data;
+        window.location.replace(session_url);
+      }
     }
     else{
       alert("Error");
     }
   }
-
-  const navigate = useNavigate();
 
   useEffect(()=>{
     if (!token) {
@@ -100,7 +112,8 @@ const PlaceOrder = () => {
               <b>$ {getTotalCartAmount() === 0?0:getTotalCartAmount()}</b>
             </div>
           </div>
-            <button type='submit'>PROCEED TO PAYMENT</button>
+            <button id="payment" type='submit'>PROCEED TO PAYMENT</button>
+            <button id="cashondelivery" type='submit'>CASH ON DELIVERY</button>
         </div>
         </div>
     </form>
