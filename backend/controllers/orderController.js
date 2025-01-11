@@ -63,7 +63,7 @@ const placeOrder = async (req, res) => {
       // Prepare Stripe line items
       const line_items = items.map((item) => ({
         price_data: {
-          currency: "USD",
+          currency: "CAD",
           product_data: {
             name: item.name,
           },
@@ -75,11 +75,11 @@ const placeOrder = async (req, res) => {
       // Add delivery charge to line items
       line_items.push({
         price_data: {
-          currency: "USD",
+          currency: "CAD",
           product_data: {
             name: "Delivery Charges",
           },
-          unit_amount: deliveryCharge*100, // Delivery charge in usd*100(cents)
+          unit_amount: Math.round(deliveryCharge*100), // Delivery charge in usd*100(cents)
         },
         quantity: 1,
       });
