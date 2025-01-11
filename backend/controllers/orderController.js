@@ -9,7 +9,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 
 // Define the store's zip code
-const storeZipCode = "121006"; // Example zip code for store
+const storeZipCode = "121006"; // Example zip code for store, 1, 3, 5
 
 const placeOrder = async (req, res) => {
   const frontend_url = "http://localhost:5173";
@@ -25,7 +25,7 @@ const placeOrder = async (req, res) => {
     const distanceResponse = await axios.get(distanceMatrixUrl);
 
     // Log the response to check its structure
-    console.log(distanceResponse.data);
+    console.log("[debugPayments1]",distanceResponse.data);
 
     // Check if the response contains the expected structure
     if (distanceResponse.data.status === "OK" && distanceResponse.data.rows[0].elements[0].status === "OK") {
@@ -46,12 +46,13 @@ const placeOrder = async (req, res) => {
         // For distances greater than 10 km, add $1 per km
         deliveryCharge = 6 + (distanceInKm - 10); // $6 base charge + $1 for each additional km
       }
-      console.log(deliveryCharge);
+      console.log("[debugPayments2] kms,charge",distanceInKm , deliveryCharge);
+
       // Create new order
       const newOrder = new orderModel({
         userId,
         items,
-        amount,
+        amount: amount + deliveryCharge,
         address,
         paymentMode,
       });
@@ -62,11 +63,11 @@ const placeOrder = async (req, res) => {
       // Prepare Stripe line items
       const line_items = items.map((item) => ({
         price_data: {
-          currency: "inr",
+          currency: "USD",
           product_data: {
             name: item.name,
           },
-          unit_amount: item.selectedPrice * 100 * 84, // Price in paise
+          unit_amount: item.selectedPrice*100, // Price in usd*100(cents)
         },
         quantity: item.quantity,
       }));
@@ -74,15 +75,15 @@ const placeOrder = async (req, res) => {
       // Add delivery charge to line items
       line_items.push({
         price_data: {
-          currency: "inr",
+          currency: "USD",
           product_data: {
             name: "Delivery Charges",
           },
-          unit_amount: deliveryCharge * 100 * 84, // Delivery charge in paise
+          unit_amount: deliveryCharge*100, // Delivery charge in usd*100(cents)
         },
         quantity: 1,
       });
-      console.log("line_items",JSON.stringify(line_items))
+      console.log("[debugPayments3] line_items",JSON.stringify(line_items))
       if(paymentMode==="cashondelivery"){
         return res.json({ success: true, message: "Order Placed" });
       }
@@ -106,6 +107,46 @@ const placeOrder = async (req, res) => {
     res.json({ success: false, message: "Error" });
   }
 };
+
+const deliverFeeCalculator = async (req,res)=>{
+     const { userId, items, amount, address, paymentMode } = req.body;
+      const userZipCode = address.zipcode;
+      // Get the distance between the store and the user's address using the Google Distance Matrix API
+      const googleApiKey = process.env.GOOGLE_API_KEY; // Make sure to store your API key securely
+      const distanceMatrixUrl = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${storeZipCode}&destinations=${userZipCode}&key=${googleApiKey}`;
+      
+      try {
+          const distanceResponse = await axios.get(distanceMatrixUrl);
+            
+          if (distanceResponse.data.status === "OK" && distanceResponse.data.rows[0].elements[0].status === "OK") {
+            const distanceInKm = distanceResponse.data.rows[0].elements[0].distance.value / 1000; // Distance in km
+      
+            // Apply logic to calculate delivery charges based on the distance
+            let deliveryCharge = 0; // Default delivery charge
+      
+            if (distanceInKm <= 3) {
+              deliveryCharge = 0; // Free delivery for distance within 3 km
+            } else if (distanceInKm > 3 && distanceInKm <= 5) {
+              deliveryCharge = 3; // $3 delivery charge for 3 to 5 km
+            } else if (distanceInKm > 5 && distanceInKm <= 8) {
+              deliveryCharge = 5; // $5 delivery charge for 5 to 8 km
+            } else if (distanceInKm > 8 && distanceInKm <= 10) {
+              deliveryCharge = 6; // $6 delivery charge for 8 to 10 km
+            } else {
+              // For distances greater than 10 km, add $1 per km
+              deliveryCharge = 6 + (distanceInKm - 10); // $6 base charge + $1 for each additional km
+            }
+            console.log("[deliverFeeCalculator] kms,charge",distanceInKm , deliveryCharge);
+            res.json({ status: 200, message: "Delivery charge calculated", deliveryCharge });
+          }
+          else{
+            res.json({ status: 400, message: "Some error in distance matrix api" });
+          }
+      } catch (error) {
+        res.json({ status: 500, message: "Server error occured" });
+      }
+};
+
 // --------------------------------- Place order old code --------------------------------
 
 
@@ -213,5 +254,5 @@ const updateStatus = async (req, res) => {
   }
 };
 
-export { placeOrder, verifyOrder, usersOrder, listOrders, updateStatus };
+export { placeOrder, verifyOrder, usersOrder, listOrders, updateStatus, deliverFeeCalculator };
 

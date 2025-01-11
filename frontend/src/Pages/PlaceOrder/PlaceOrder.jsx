@@ -18,6 +18,7 @@ const PlaceOrder = () => {
     country:"",
     phone:""
   })
+  const [deliveryAmount,setDeliveryAmount] = useState(0);
 
   const onChangeHandler = (event) => {
     const name = event.target.name;
@@ -29,6 +30,7 @@ const PlaceOrder = () => {
 
   const placeOrder = async (event) => {
     event.preventDefault();
+    
     let orderItems = [];
     const paymentMode = event.nativeEvent.submitter.id;
     food_list.map((item)=>{
@@ -42,10 +44,26 @@ const PlaceOrder = () => {
     let orderData = {
       address:data,
       items:orderItems,
-      amount:getTotalCartAmount()+2,
+      amount:getTotalCartAmount(),
       paymentMode
     }
     console.log(orderData);
+
+    //only call delivery fee calculation
+    if(event.nativeEvent.submitter.id==="DelCal"){
+      let response = await axios.post(url+"/api/order/deliverfeecalculator",orderData,{headers: { Authorization: `Bearer ${token}` } })
+      if(response.data.status===200){
+        console.log(response.data.deliveryCharge)
+        // alert(`Delivery Fee is $ ${response.data.deliveryCharge}`)
+        setDeliveryAmount(response.data.deliveryCharge);
+      }
+      else{
+        alert("Error");
+      }
+      return;
+    }
+
+
     let response = await axios.post(url+"/api/order/place",orderData,{headers: { Authorization: `Bearer ${token}` } })
     if(response.data.success){
       //cashondelivery
@@ -104,8 +122,8 @@ const PlaceOrder = () => {
             </div>
             <hr />
             <div className="cart-total-details">
-              <p>Delivery Fee</p>
-              <p>$ {getTotalCartAmount() === 0?0:0}</p>
+              <button id="DelCal" className='DelCal'>Calculate Delivery Fee</button>
+              <p>$ {getTotalCartAmount() === 0?0:deliveryAmount}</p>
             </div>
             <hr />
             <div className="cart-total-details">
