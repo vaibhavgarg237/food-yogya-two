@@ -9,7 +9,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 
 // Define the store's zip code
-const storeZipCode = "121006"; // Example zip code for store, 1, 3, 5
+const storeZipCode = "L8G1G6"; // Example zip code for store, 1, 3, 5
 
 const placeOrder = async (req, res) => {
   const frontend_url = "http://localhost:5173";
