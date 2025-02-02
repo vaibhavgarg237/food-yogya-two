@@ -252,6 +252,11 @@
     .navbar {
         padding: 20px 4%;
     }
+
+    .navbar .logo {
+        height: 80px;
+        width: 100px;
+    }
     
     .navbar-menu {
         gap: 15px;
@@ -283,8 +288,9 @@
         padding: 15px 3%;
     }
     
-    .logo {
-        height: 45px;
+    .navbar .logo {
+        height: 60px;
+        width: 70px;
     }
     
     .navbar-menu {
@@ -384,9 +390,9 @@
         gap: 15px;
     }
     
-    .navbar-right img {
+    /* .navbar-right img {
         width: 20px;
-    }
+    } */
     
     .navbar-right button {
         order: 3;
@@ -408,8 +414,10 @@
     }
     
     .navbar-profile img {
-        width: 30px;
-        height: 30px;
+        /* width: 30px;
+        height: 30px; */
+        width: 18px;
+        height: 21.5px;
     }
 }
 

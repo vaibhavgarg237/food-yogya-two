@@ -81,7 +81,8 @@ export const assets = {
     profile_icon,
     logout_icon,
     bag_icon,
-    parcel_icon
+    parcel_icon,
+    food_1
 }
 
 export const menu_list = [
@@ -106,15 +107,15 @@ export const menu_list = [
         menu_image: menu_5
     },
     {
-        menu_name: "Pure Veg",
+        menu_name: "Specials",
         menu_image: menu_6
     },
     {
-        menu_name: "Pasta",
+        menu_name: "Pizza",
         menu_image: menu_7
     },
     {
-        menu_name: "Noodles",
+        menu_name: "Fryers",
         menu_image: menu_8
     }]
 
@@ -268,85 +269,85 @@ export const food_list = [
         image: food_21,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
+        category: "Specials"
     }, {
         _id: "22",
         name: "Fried Cauliflower",
         image: food_22,
         price: 22,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
+        category: "Specials"
     }, {
         _id: "23",
         name: "Mix Veg Pulao",
         image: food_23,
         price: 10,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
+        category: "Specials"
     }, {
         _id: "24",
         name: "Rice Zucchini",
         image: food_24,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
+        category: "Specials"
     },
     {
         _id: "25",
-        name: "Cheese Pasta",
+        name: "Cheese Pizza",
         image: food_25,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
+        category: "Pizza"
     },
     {
         _id: "26",
-        name: "Tomato Pasta",
+        name: "Tomato Pizza",
         image: food_26,
         price: 18,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
+        category: "Pizza"
     }, {
         _id: "27",
-        name: "Creamy Pasta",
+        name: "Creamy Pizza",
         image: food_27,
         price: 16,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
+        category: "Pizza"
     }, {
         _id: "28",
-        name: "Chicken Pasta",
+        name: "Chicken Pizza",
         image: food_28,
         price: 24,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
+        category: "Pizza"
     }, {
         _id: "29",
-        name: "Buttter Noodles",
+        name: "Buttter Fryers",
         image: food_29,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
+        category: "Fryers"
     }, {
         _id: "30",
-        name: "Veg Noodles",
+        name: "Veg Fryers",
         image: food_30,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
+        category: "Fryers"
     }, {
         _id: "31",
-        name: "Somen Noodles",
+        name: "Somen Fryers",
         image: food_31,
         price: 20,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
+        category: "Fryers"
     }, {
         _id: "32",
-        name: "Cooked Noodles",
+        name: "Cooked Fryers",
         image: food_32,
         price: 15,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
+        category: "Fryers"
     }
 ]

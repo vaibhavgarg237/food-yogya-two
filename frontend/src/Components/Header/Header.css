@@ -1,4 +1,4 @@
-.header{
+/* .header{
     height: 34vw;
     margin: 30px auto;
     background: url('https://www.carousel-bars.co.uk/wp-content/uploads/2024/05/Carousel-Leeds-189-1200x480.jpg') no-repeat;
@@ -56,4 +56,127 @@
     .header-contents button{
         padding: 2vw 4vw;
     }
-}
+} */
+.header {
+    height: 34vw;
+    margin: 30px auto;
+    /* background: url("https://www.carousel-bars.co.uk/wp-content/uploads/2024/05/Carousel-Leeds-189-1200x480.jpg") */
+    background: url("https://images.unsplash.com/photo-1593504049359-74330189a345?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBpenphfGVufDB8fDB8fHww")
+      no-repeat center center;
+    background-size: cover;
+    position: relative;
+  }
+
+.header-contents {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5vw;
+    max-width: 50%;
+    bottom: 10%;
+    left: 6vw;
+    animation: fadeIn 3s;
+  }
+
+.header-contents h2 {
+    font-weight: 500;
+    color: white;
+    font-size: max(4.5vw, 22px);
+    line-height: 1.2;
+  }
+
+.header-contents p {
+    color: aliceblue;
+    font-size: max(1vw, 14px);
+    line-height: 1.5;
+  }
+
+.header-contents button {
+    border: none;
+    color: #747474;
+    font-weight: 500;
+    padding: max(1vw, 10px) max(2.3vw, 20px);
+    background-color: white;
+    font-size: max(1vw, 13px);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+.header-contents button:hover {
+    background-color: #ececec;
+    transform: scale(1.05);
+  }
+
+@media (max-width: 1050px) {
+    .header {
+      height: 40vw;
+    }
+
+    .header-contents {
+      max-width: 65%;
+      gap: 1vw;
+    }
+
+    .header-contents h2 {
+      font-size: max(4vw, 18px);
+    }
+
+    .header-contents p {
+      font-size: max(0.9vw, 12px);
+    }
+
+    .header-contents button {
+      padding: max(1.2vw, 12px) max(3vw, 24px);
+    }
+  }
+
+@media (max-width: 750px) {
+    .header {
+      height: 50vw;
+    }
+
+    .header-contents {
+      max-width: 80%;
+      gap: 1.5vw;
+    }
+
+    .header-contents p {
+      display: none;
+    }
+
+    .header-contents h2 {
+      font-size: max(5vw, 20px);
+    }
+
+    .header-contents button {
+      padding: max(1.5vw, 10px) max(3vw, 16px);
+      position: relative;
+      align-self: flex-start;
+      font-size: max(0.9vw, 12px);
+    }
+  }
+
+@media (max-width: 500px) {
+    .header {
+      height: 60vw;
+    }
+
+    .header-contents {
+      max-width: 90%;
+      bottom: 15%;
+      left: 5vw;
+    }
+
+    .header-contents h2 {
+      font-size: max(6vw, 16px);
+    }
+
+    .header-contents button {
+      padding: max(2vw, 8px) max(3.5vw, 14px);
+      position: relative;
+      align-self: flex-start;
+      font-size: max(0.8vw, 10px);
+    }
+  }

@@ -8,7 +8,7 @@ const Footer = () => {
         <div className='footer-content'>
             <div className="footer-content-left">
                 <img className='footer-logo' src={assets.StonzyLogo} alt="" />
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates adipisci quae dolorem. Non illo, blanditiis repellat temporibus tempore delectus accusamus in mollitia debitis dolore! Amet praesentium ipsa velit eaque fuga.</p>
+                <p>We pride ourselves on using fresh ingredients and crafting flavors that delight every taste bud. With quick delivery and an easy-to-use platform, enjoying your favorite meals has never been simpler. Experience the perfect blend of quality, convenience, and taste with every order!</p>
                 <div className="footer-social-items">
                     <img src={assets.facebook_icon} alt="" />
                     <img src={assets.twitter_icon} alt="" />
@@ -27,8 +27,8 @@ const Footer = () => {
             <div className="footer-content-right">
                 <h2>GET IN TOUCH</h2>
                 <ul>
-                    <li>Phone Number</li>
-                    <li>Email Id</li>
+                    <li>Phone Number :- 9059309494</li>
+                    <li>Email Id :- hr.stonyzPizza@gmail.com</li>
                 </ul>
             </div>
             
