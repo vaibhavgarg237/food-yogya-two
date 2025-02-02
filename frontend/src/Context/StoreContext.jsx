@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+import { food_list as importedFoodList } from "../assets/assets"; // Import the food_list array
 // import { food_list } from "../assets/assets";
 export const StoreContext = createContext(null);
 
@@ -12,15 +13,26 @@ const StoreContextProvider = (props) => {
   const [food_list,setFoodList] = useState([])
   const [searchedList, setSearchedList] = useState([])
 
-  const addToCart = async (itemId,foodPrice) => {
-    // console.log("init",foodPrice,cartItems)
-    if (!cartItems[itemId]) {
+  const addToCart = async (itemId,foodPrice, buildYourOwnPizza = null) => {
+    if(itemId === "buildYourOwnPizza"){
+      setCartItems((prev) => ({ ...prev, [itemId]: [1,foodPrice, buildYourOwnPizza] }));
+      console.log("buildYourOwnPizza",foodPrice,buildYourOwnPizza, cartItems)
+
+
+      if(token){
+        await axios.post(url+"/api/cart/add",{itemId,foodPrice, buildYourOwnPizza},{ headers: { Authorization: `Bearer ${token}` } }
+        )
+      }
+      return;
+    }
+    else if (!cartItems[itemId]) {
       setCartItems((prev) => ({ ...prev, [itemId]: [1,foodPrice] }));
       // console.log("one",foodPrice,cartItems)
     } else {
       setCartItems((prev) => ({ ...prev, [itemId]: [prev[itemId][0] + 1,foodPrice] }));
       // console.log("two",foodPrice,cartItems)
     }
+
     if(token){
       // await axios.post(url+"/api/cart/add",{itemId},{headers:token})
       await axios.post(url+"/api/cart/add",{itemId,foodPrice},{ headers: { Authorization: `Bearer ${token}` } }
@@ -58,9 +70,11 @@ const getTotalCartAmount = () => {
   };
 
   const fetchFoodList = async () => {
-    const response = await axios.get(url+"/api/food/list");
-    setFoodList(response.data.data)
-    console.log(response.data.data)
+    // const response = await axios.get(url+"/api/food/list");
+    // console.log("fetchFoodList",response.data.data);
+    // console.log("ImportedFoodList",importedFoodList);
+    setFoodList(importedFoodList)
+    // console.log(response.data.data)
   }
 
   const loadCartData = async(token) => {

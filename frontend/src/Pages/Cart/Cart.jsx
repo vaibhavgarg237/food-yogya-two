@@ -83,7 +83,7 @@ import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } = useContext(StoreContext);
   const navigate = useNavigate();
-
+  // console.log("YAA@",food_list);
   return (
     <div className="cart">
       <div className="cart-items">
@@ -98,9 +98,16 @@ const Cart = () => {
         <hr />
         {food_list.map((item) => {
           if (cartItems[item._id]?.[0] > 0) {
+
+            if(cartItems["buildYourOwnPizza"]!=null){
+              console.log("Y2", "OwnPizza: "+cartItems["buildYourOwnPizza"][2]);
+            }
+            console.log("Cart.jsz")
+  
+  
             return (
               <div key={item._id} className="cart-items-title cart-items-item">
-                <img src={`${url}/images/${item.image}`} alt={item.name} />
+                <img src={`${window.location.origin}/${item.image}`} alt={item.name} />
                 <p>{item.name}</p>
                 <p>$ {cartItems[item._id][1]}</p>
                 <p>{cartItems[item._id][0]}</p>

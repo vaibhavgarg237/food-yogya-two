@@ -297,7 +297,7 @@ const FoodItem = ({ id, name, price, description, image, sizes = {} }) => {
 
     // Safely update price based on selected size
     const sizeKeyMap = {
-      XS: "extraSmall",
+      Slab: "slab",
       S: "small",
       M: "medium",
       L: "large",
@@ -370,14 +370,6 @@ const FoodItem = ({ id, name, price, description, image, sizes = {} }) => {
         <div className="food-item-price-and-weight">
           <p className="food-item-price">${foodPrice}</p>
           <div className="food-item-weight-parent">
-            {sizes?.["extraSmall"] && (
-              <div
-                className={`food-weight-buttons ${selectedButton === "XS" ? "highlightButton" : ""}`}
-                onClick={foodWeightHandler}
-              >
-                XS
-              </div>
-            )}
             {sizes?.["small"] && (
               <div
                 className={`food-weight-buttons ${selectedButton === "S" ? "highlightButton" : ""}`}
@@ -408,6 +400,14 @@ const FoodItem = ({ id, name, price, description, image, sizes = {} }) => {
                 onClick={foodWeightHandler}
               >
                 XL
+              </div>
+            )}
+            {sizes?.["slab"] && (
+              <div
+                className={`food-weight-buttons ${selectedButton === "Slab" ? "highlightButton" : ""}`}
+                onClick={foodWeightHandler}
+              >
+                Slab
               </div>
             )}
           </div>

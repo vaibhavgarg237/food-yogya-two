@@ -85,7 +85,7 @@ const FoodDisplay = ({ category, search = false }) => {
       <div className="food-display-list">
         {/* Render items from the imported food_list */}
         {importedFoodList.map((item, index) => (
-          <div key={`imported-${index}`} className="food-item-container">
+          item._id !== "buildYourOwnPizza" && <div key={`imported-${index}`} className="food-item-container">
             <FoodItem
               id={item._id}
               name={item.name}

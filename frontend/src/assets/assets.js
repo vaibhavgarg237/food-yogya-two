@@ -121,12 +121,34 @@ export const menu_list = [
 
 export const food_list = [
     {
+        _id: "buildYourOwnPizza",
+        name: "Build Your Own Pizza",
+        image: food_1,
+        price: 0,
+        description: "Build your own pizza",
+        category: "Pizza",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
+    },
+    {
         _id: "1",
         name: "Greek salad",
         image: food_1,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     },
     {
         _id: "2",
@@ -134,77 +156,154 @@ export const food_list = [
         image: food_2,
         price: 18,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:10,
+            large:null,
+            extraLarge:null,
+            slab:100,
+        }
     }, {
         _id: "3",
         name: "Clover Salad",
         image: food_3,
         price: 16,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "4",
         name: "Chicken Salad",
         image: food_4,
         price: 24,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "5",
         name: "Lasagna Wraps",
         image: food_5,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Wraps"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "6",
         name: "Peri Peri Wraps",
         image: food_6,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Wraps"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "7",
         name: "Chicken Wraps",
         image: food_7,
         price: 20,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Wraps"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "8",
         name: "Veg Wraps",
         image: food_8,
         price: 15,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Wraps"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "9",
         name: "Ripple Ice Cream",
         image: food_9,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "10",
         name: "Fruit Ice Cream",
         image: food_10,
         price: 22,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "11",
         name: "Jar Ice Cream",
         image: food_11,
         price: 10,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "12",
         name: "Vanilla Ice Cream",
         image: food_12,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     },
     {
         _id: "13",
@@ -212,7 +311,14 @@ export const food_list = [
         image: food_13,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Burger"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:300,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     },
     {
         _id: "14",
@@ -220,77 +326,154 @@ export const food_list = [
         image: food_14,
         price: 18,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Burger"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "15",
         name: "Grilled Burger",
         image: food_15,
         price: 16,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Burger"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "16",
         name: "Bread Burger",
         image: food_16,
         price: 24,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Burger"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "17",
         name: "Cup Cake",
         image: food_17,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "18",
         name: "Vegan Cake",
         image: food_18,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "19",
         name: "Butterscotch Cake",
         image: food_19,
         price: 20,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "20",
         name: "Sliced Cake",
         image: food_20,
         price: 15,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "21",
         name: "Garlic Mushroom ",
         image: food_21,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Specials"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "22",
         name: "Fried Cauliflower",
         image: food_22,
         price: 22,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Specials"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "23",
         name: "Mix Veg Pulao",
         image: food_23,
         price: 10,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Specials"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "24",
         name: "Rice Zucchini",
         image: food_24,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Specials"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     },
     {
         _id: "25",
@@ -298,7 +481,14 @@ export const food_list = [
         image: food_25,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pizza"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     },
     {
         _id: "26",
@@ -306,48 +496,97 @@ export const food_list = [
         image: food_26,
         price: 18,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pizza"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "27",
         name: "Creamy Pizza",
         image: food_27,
         price: 16,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pizza"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "28",
         name: "Chicken Pizza",
         image: food_28,
         price: 24,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pizza"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "29",
         name: "Buttter Fryers",
         image: food_29,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Fryers"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "30",
         name: "Veg Fryers",
         image: food_30,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Fryers"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "31",
         name: "Somen Fryers",
         image: food_31,
         price: 20,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Fryers"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }, {
         _id: "32",
         name: "Cooked Fryers",
         image: food_32,
         price: 15,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Fryers"
+        category: "Salad",
+        sizes: {
+            small:null,
+            medium:5,
+            large:null,
+            extraLarge:200,
+            slab:10,
+        }
     }
 ]

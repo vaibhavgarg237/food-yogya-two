@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import "./BuildYourPizza.css";
+import { useNavigate } from "react-router-dom";
+
+import { StoreContext } from '../../Context/StoreContext.jsx';
+
+
 
 const BuildYourPizza = () => {
+  const navigate = useNavigate();
+  const { cartItems, addToCart, removeFromCart, url } = useContext(StoreContext);
   // State to manage selected options
-  const [crust, setCrust] = useState("");
-  const [sauce, setSauce] = useState("");
-  const [cheese, setCheese] = useState("");
+  const [crust, setCrust] = useState({name:"",price:0});
+  const [sauce, setSauce] = useState({name:"",price:0});
+  const [cheese, setCheese] = useState({name:"",price:0});
   const [toppings, setToppings] = useState([]);
   const [price, setPrice] = useState(0);
 
@@ -169,7 +176,18 @@ const BuildYourPizza = () => {
       </div>
 
       {/* Add to Cart Button */}
-      <button className="add-to-cart-button">Add to Cart</button>
+      <button className="add-to-cart-button" onClick={()=>{
+        const crustText = crust? "Crust: "+JSON.stringify(crust) : "";
+        const sauceText = sauce? "Sauce: "+JSON.stringify(sauce) : "";
+        const cheeseText = cheese? "Cheese: "+JSON.stringify(cheese) : "";
+        const toppingsText = toppings.length > 0 ? "Toppings: "+toppings.map((t) => t.name).join(", ") : "";
+        const totalPrice = price.toFixed(2);
+        
+        // console.log("YAA",)
+        alert(`Adding to Cart: ${crustText}, ${sauceText}, ${cheeseText}, ${toppingsText}, Price: $${totalPrice}`);
+        addToCart("buildYourOwnPizza", totalPrice,crust.name +"," + sauce.name + ", " +cheese.name + ", " + toppings.map((t) => t.name).join(", ") );
+        navigate("/Cart");
+      }}>Add to Cart</button>
     </div>
   );
 };
