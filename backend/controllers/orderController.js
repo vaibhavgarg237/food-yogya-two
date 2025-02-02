@@ -9,7 +9,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 
 // Define the store's zip code
-const storeZipCode = "L8G1G6"; // Example zip code for store, 1, 3, 5
+const storeZipCode = "L8E2Y4"; // Example zip code for store, 1, 3, 5
 
 const placeOrder = async (req, res) => {
   const frontend_url = "http://localhost:5173";
@@ -35,7 +35,7 @@ const placeOrder = async (req, res) => {
       let deliveryCharge = 0; // Default delivery charge
 
       if (distanceInKm <= 3) {
-        deliveryCharge = 0; // Free delivery for distance within 3 km
+        deliveryCharge = 2; // Free delivery for distance within 3 km
       } else if (distanceInKm > 3 && distanceInKm <= 5) {
         deliveryCharge = 3; // $3 delivery charge for 3 to 5 km
       } else if (distanceInKm > 5 && distanceInKm <= 8) {
