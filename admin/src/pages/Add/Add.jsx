@@ -297,9 +297,10 @@ const Add = ({ url }) => {
                   <input
                     type="number"
                     name={size}
-                    value={sizes[size]}
+                    // value={sizes[size]}
                     onChange={onSizeChangeHandler}
                     placeholder={`Price for ${size}`}
+                    step="any"
                   />
                 </div>
               ))}
